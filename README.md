@@ -5,14 +5,14 @@ Homebrew formulae for my tools.
 ## Installation
 
 ```bash
-brew tap noorchasib/tap
+brew tap NoorXLabs/tap
 brew install devbox
 ```
 
 Or as a one-liner:
 
 ```bash
-brew install noorchasib/tap/devbox
+brew install NoorXLabs/tap/devbox
 ```
 
 ## Available Formulae

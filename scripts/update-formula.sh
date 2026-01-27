@@ -13,7 +13,7 @@ if [[ -z "$VERSION" ]]; then
     exit 1
 fi
 
-REPO="noorchasib/DevBox"
+REPO="NoorXLabs/DevBox"
 FORMULA="Formula/devbox.rb"
 TMPDIR=$(mktemp -d)
 
@@ -51,7 +51,7 @@ echo "Updating ${FORMULA}..."
 cat > "$FORMULA" << EOF
 class Devbox < Formula
   desc "Local-first development container manager"
-  homepage "https://github.com/noorchasib/DevBox"
+  homepage "https://github.com/NoorXLabs/DevBox"
   version "${VERSION}"
   license "Apache-2.0"
 

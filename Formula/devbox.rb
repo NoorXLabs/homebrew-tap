@@ -1,24 +1,24 @@
 class Devbox < Formula
   desc "Local-first development container manager"
-  homepage "https://github.com/noorchasib/DevBox"
+  homepage "https://github.com/NoorXLabs/DevBox"
   version "0.4.0"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/noorchasib/DevBox/releases/download/v0.4.0/devbox-darwin-arm64.tar.gz"
+      url "https://github.com/NoorXLabs/DevBox/releases/download/v0.4.0/devbox-darwin-arm64.tar.gz"
       sha256 "REPLACE_WITH_ACTUAL_SHA256"
     end
 
     on_intel do
-      url "https://github.com/noorchasib/DevBox/releases/download/v0.4.0/devbox-darwin-x64.tar.gz"
+      url "https://github.com/NoorXLabs/DevBox/releases/download/v0.4.0/devbox-darwin-x64.tar.gz"
       sha256 "REPLACE_WITH_ACTUAL_SHA256"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/noorchasib/DevBox/releases/download/v0.4.0/devbox-linux-x64.tar.gz"
+      url "https://github.com/NoorXLabs/DevBox/releases/download/v0.4.0/devbox-linux-x64.tar.gz"
       sha256 "REPLACE_WITH_ACTUAL_SHA256"
     end
   end
