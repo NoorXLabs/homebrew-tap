@@ -20,14 +20,3 @@ brew install NoorXLabs/tap/devbox
 | Formula | Description |
 |---------|-------------|
 | devbox | Local-first development container manager |
-
-## Updating Formulae
-
-After creating a new DevBox release:
-
-```bash
-# Run from this repo's root
-./scripts/update-formula.sh 0.5.0
-```
-
-This downloads the release artifacts, computes SHA256 hashes, and updates the formula automatically.
