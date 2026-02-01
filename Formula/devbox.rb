@@ -1,25 +1,30 @@
 class Devbox < Formula
   desc "Local-first development container manager"
   homepage "https://github.com/NoorXLabs/DevBox"
-  version "0.7.2"
+  version "0.7.5"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/NoorXLabs/DevBox/releases/download/v0.7.2/devbox-darwin-arm64.tar.gz"
-      sha256 "7dd0192af9a8723bf18363cbeeb116594c71a51dab8a9dae40cc9d450438f0f5"
+      url "https://github.com/NoorXLabs/DevBox/releases/download/v0.7.5/devbox-darwin-arm64.tar.gz"
+      sha256 "8365785a56cdaaaa5bee9bf29dee7a5dc6ae39af0605992fa8c3632bfc8b85ee"
     end
 
     on_intel do
-      url "https://github.com/NoorXLabs/DevBox/releases/download/v0.7.2/devbox-darwin-x64.tar.gz"
-      sha256 "a060500260b3e498d9db78f4f47b31545f128cc5c5214e413d1e66e2b43eb8e7"
+      url "https://github.com/NoorXLabs/DevBox/releases/download/v0.7.5/devbox-darwin-x64.tar.gz"
+      sha256 "42c1029018e974cc2bb8f4dde2119d7dcad502b23dd02d11dd4309247d91448a"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/NoorXLabs/DevBox/releases/download/v0.7.2/devbox-linux-x64.tar.gz"
-      sha256 "5db67066e89a50dab97de2bca05324712f2a0f015d3d221e429d1c68f417a51c"
+      url "https://github.com/NoorXLabs/DevBox/releases/download/v0.7.5/devbox-linux-x64.tar.gz"
+      sha256 "5efe065e35bfd88611970131cd6a3c1289e6b6332dde19417d77df9c004a3d73"
+    end
+
+    on_arm do
+      url "https://github.com/NoorXLabs/DevBox/releases/download/v0.7.5/devbox-linux-arm64.tar.gz"
+      sha256 "8761eff3784b73f9c425a478f2a571c4fd0198a6efeb6e6910efb224115dfc9e"
     end
   end
 
@@ -30,6 +35,8 @@ class Devbox < Formula
       bin.install "devbox-darwin-x64" => "devbox"
     elsif OS.linux? && Hardware::CPU.intel?
       bin.install "devbox-linux-x64" => "devbox"
+    elsif OS.linux? && Hardware::CPU.arm?
+      bin.install "devbox-linux-arm64" => "devbox"
     end
   end
 
