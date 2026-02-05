@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-# Update DevBox Homebrew formula with SHA256 hashes from a GitHub release
+# Update SkyBox Homebrew formula with SHA256 hashes from a GitHub release
 #
 # Usage: ./scripts/update-formula.sh <version>
 # Example: ./scripts/update-formula.sh 0.4.0
@@ -13,8 +13,8 @@ if [[ -z "$VERSION" ]]; then
     exit 1
 fi
 
-REPO="NoorXLabs/DevBox"
-FORMULA="Formula/devbox.rb"
+REPO="NoorXLabs/SkyBox"
+FORMULA="Formula/skybox.rb"
 TMPDIR=$(mktemp -d)
 
 cleanup() {
@@ -28,7 +28,7 @@ echo ""
 # Download and hash each artifact
 declare -A SHAS
 
-for artifact in devbox-darwin-arm64 devbox-darwin-x64 devbox-linux-x64; do
+for artifact in skybox-darwin-arm64 skybox-darwin-x64 skybox-linux-x64; do
     url="https://github.com/${REPO}/releases/download/v${VERSION}/${artifact}.tar.gz"
     file="${TMPDIR}/${artifact}.tar.gz"
 
@@ -49,53 +49,53 @@ echo "Updating ${FORMULA}..."
 
 # Create updated formula
 cat > "$FORMULA" << EOF
-class Devbox < Formula
+class Skybox < Formula
   desc "Local-first development container manager"
-  homepage "https://github.com/NoorXLabs/DevBox"
+  homepage "https://github.com/NoorXLabs/SkyBox"
   version "${VERSION}"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/${REPO}/releases/download/v${VERSION}/devbox-darwin-arm64.tar.gz"
-      sha256 "${SHAS[devbox-darwin-arm64]}"
+      url "https://github.com/${REPO}/releases/download/v${VERSION}/skybox-darwin-arm64.tar.gz"
+      sha256 "${SHAS[skybox-darwin-arm64]}"
     end
 
     on_intel do
-      url "https://github.com/${REPO}/releases/download/v${VERSION}/devbox-darwin-x64.tar.gz"
-      sha256 "${SHAS[devbox-darwin-x64]}"
+      url "https://github.com/${REPO}/releases/download/v${VERSION}/skybox-darwin-x64.tar.gz"
+      sha256 "${SHAS[skybox-darwin-x64]}"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/${REPO}/releases/download/v${VERSION}/devbox-linux-x64.tar.gz"
-      sha256 "${SHAS[devbox-linux-x64]}"
+      url "https://github.com/${REPO}/releases/download/v${VERSION}/skybox-linux-x64.tar.gz"
+      sha256 "${SHAS[skybox-linux-x64]}"
     end
   end
 
   def install
     if OS.mac? && Hardware::CPU.arm?
-      bin.install "devbox-darwin-arm64" => "devbox"
+      bin.install "skybox-darwin-arm64" => "skybox"
     elsif OS.mac? && Hardware::CPU.intel?
-      bin.install "devbox-darwin-x64" => "devbox"
+      bin.install "skybox-darwin-x64" => "skybox"
     elsif OS.linux? && Hardware::CPU.intel?
-      bin.install "devbox-linux-x64" => "devbox"
+      bin.install "skybox-linux-x64" => "skybox"
     end
   end
 
   def caveats
     <<~EOS
-      DevBox requires Docker Desktop to be running.
-      Start Docker Desktop before using devbox commands.
+      SkyBox requires Docker Desktop to be running.
+      Start Docker Desktop before using skybox commands.
 
       Get started:
-        devbox init
+        skybox init
     EOS
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/devbox --version")
+    assert_match version.to_s, shell_output("#{bin}/skybox --version")
   end
 end
 EOF
@@ -103,6 +103,6 @@ EOF
 echo "Done!"
 echo ""
 echo "Next steps:"
-echo "  1. Review changes: git diff Formula/devbox.rb"
-echo "  2. Commit: git add Formula/devbox.rb && git commit -m 'Update devbox to v${VERSION}'"
+echo "  1. Review changes: git diff Formula/skybox.rb"
+echo "  2. Commit: git add Formula/skybox.rb && git commit -m 'Update skybox to v${VERSION}'"
 echo "  3. Push: git push"

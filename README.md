@@ -6,17 +6,17 @@ Homebrew formulae for my tools.
 
 ```bash
 brew tap NoorXLabs/tap
-brew install devbox
+brew install skybox
 ```
 
 Or as a one-liner:
 
 ```bash
-brew install NoorXLabs/tap/devbox
+brew install NoorXLabs/tap/skybox
 ```
 
 ## Available Formulae
 
 | Formula | Description |
 |---------|-------------|
-| devbox | Local-first development container manager |
+| skybox | Local-first development container manager |
