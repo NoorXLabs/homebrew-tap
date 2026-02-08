@@ -4,12 +4,12 @@ set -euo pipefail
 # Update SkyBox Homebrew formula with SHA256 hashes from a GitHub release
 #
 # Usage: ./scripts/update-formula.sh <version>
-# Example: ./scripts/update-formula.sh 0.4.0
+# Example: ./scripts/update-formula.sh 0.8.0
 
 VERSION="${1:-}"
 if [[ -z "$VERSION" ]]; then
     echo "Usage: $0 <version>"
-    echo "Example: $0 0.4.0"
+    echo "Example: $0 0.8.0"
     exit 1
 fi
 
@@ -28,7 +28,7 @@ echo ""
 # Download and hash each artifact
 declare -A SHAS
 
-for artifact in skybox-darwin-arm64 skybox-darwin-x64 skybox-linux-x64; do
+for artifact in skybox-darwin-arm64 skybox-darwin-x64 skybox-linux-x64 skybox-linux-arm64; do
     url="https://github.com/${REPO}/releases/download/v${VERSION}/${artifact}.tar.gz"
     file="${TMPDIR}/${artifact}.tar.gz"
 
@@ -72,6 +72,11 @@ class Skybox < Formula
       url "https://github.com/${REPO}/releases/download/v${VERSION}/skybox-linux-x64.tar.gz"
       sha256 "${SHAS[skybox-linux-x64]}"
     end
+
+    on_arm do
+      url "https://github.com/${REPO}/releases/download/v${VERSION}/skybox-linux-arm64.tar.gz"
+      sha256 "${SHAS[skybox-linux-arm64]}"
+    end
   end
 
   def install
@@ -81,6 +86,8 @@ class Skybox < Formula
       bin.install "skybox-darwin-x64" => "skybox"
     elsif OS.linux? && Hardware::CPU.intel?
       bin.install "skybox-linux-x64" => "skybox"
+    elsif OS.linux? && Hardware::CPU.arm?
+      bin.install "skybox-linux-arm64" => "skybox"
     end
   end
 
