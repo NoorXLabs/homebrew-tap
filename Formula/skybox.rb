@@ -1,30 +1,30 @@
 class Skybox < Formula
   desc "Local-first development container manager"
   homepage "https://github.com/NoorXLabs/SkyBox"
-  version "0.8.6"
+  version "0.8.7"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/NoorXLabs/SkyBox/releases/download/v0.8.6/skybox-darwin-arm64.tar.gz"
-      sha256 "8ecd1036590769f5350603acbe8697990ae07335e34fe6ba9471bef7d906fbbc"
+      url "https://github.com/NoorXLabs/SkyBox/releases/download/v0.8.7/skybox-darwin-arm64.tar.gz"
+      sha256 "90ab81f5a865fb93d8358647d224c2a9c7394adc8c84090923fd24e89f2f0b9a"
     end
 
     on_intel do
-      url "https://github.com/NoorXLabs/SkyBox/releases/download/v0.8.6/skybox-darwin-x64.tar.gz"
-      sha256 "9d31995461ba8eb70ff5a3ba44e9a5bdef23e52c8a771aca3a004211daa4117e"
+      url "https://github.com/NoorXLabs/SkyBox/releases/download/v0.8.7/skybox-darwin-x64.tar.gz"
+      sha256 "ca54430ba87b7f580100d76eb1c39059e1caadc91e2d7fc4cb49a3d5cf2b456b"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/NoorXLabs/SkyBox/releases/download/v0.8.6/skybox-linux-x64.tar.gz"
-      sha256 "5c905fa4e099da1646fa088131453d367ace2a7e19493e05a3aa50fbd6646016"
+      url "https://github.com/NoorXLabs/SkyBox/releases/download/v0.8.7/skybox-linux-x64.tar.gz"
+      sha256 "833f61416212115bc15b4538cc9fdd232fc249b63cdc53cdc1ce4771d30fec75"
     end
 
     on_arm do
-      url "https://github.com/NoorXLabs/SkyBox/releases/download/v0.8.6/skybox-linux-arm64.tar.gz"
-      sha256 "6ad805b8464eac49f1fe765b888f0181a5ad2a86e779db5d54d69bd31d517e4b"
+      url "https://github.com/NoorXLabs/SkyBox/releases/download/v0.8.7/skybox-linux-arm64.tar.gz"
+      sha256 "dc150f02985f3fcbe05499f703e14afe665136fa44f62bdff15b4946a4082a59"
     end
   end
 
